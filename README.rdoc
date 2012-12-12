@@ -1,9 +1,9 @@
-= image_search_client
+= Onyx Client
 
-Description goes here.
+Onyx Client is a client to the Onyx image search server which is built on top of Opala.
 
-== Contributing to image_search_client
- 
+== Contributing to Onyx client
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
 * Fork the project.
