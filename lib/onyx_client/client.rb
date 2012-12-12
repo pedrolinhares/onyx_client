@@ -10,7 +10,7 @@ module Onyx
         settings = Onyx::Configuration.settings
         response = Net::HTTP.start(settings[:host], settings[:port]) do |http|
           request = Net::HTTP::Put.new(settings[:path])
-          params = { key: key, file: string_file }
+          params = { key: key, image: string_file }
           request.body = params.to_json
           http.request(request)
         end
@@ -21,7 +21,7 @@ module Onyx
         settings = Onyx::Configuration.settings
         response = Net::HTTP.start(settings[:host], settings[:port]) do |http|
           request = Net::HTTP::Post.new(settings[:path])
-          params = { file: string_file }
+          params = { image: string_file }
           request.body = params.to_json
           http.request(request)
         end

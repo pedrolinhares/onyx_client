@@ -11,14 +11,14 @@ module Onyx
     #indexar
     put '/' do
       params = JSON.parse(request.body.read)
-      @@storage[params["key"]] = params["file"]
+      @@storage[params["key"]] = params["image"]
       { code: '200', message: 'message', name: 'name' }.to_json
     end
 
     #buscar
     post '/' do
       params = JSON.parse(request.body.read)
-      key = @@storage.select {|key, value| value == params["file"] }  .keys.last
+      key = @@storage.select {|key, value| value == params["image"] }  .keys.last
       [{"id" => key, "score" => "1.0", "duplicated" => "false" }].to_json
     end
 
