@@ -14,7 +14,7 @@ module Onyx
           request.body = params.to_json
           http.request(request)
         end
-        JSON.parse response.body
+        JSON.parse(response.body, :symbolize_names => true)
       end
 
       def search(string_file)
@@ -25,7 +25,7 @@ module Onyx
           request.body = params.to_json
           http.request(request)
         end
-        JSON.parse response.body
+        JSON.parse(response.body, :symbolize_names => true)
       end
 
       def delete(key)
@@ -36,7 +36,7 @@ module Onyx
           request.body = params.to_json
           http.request(request)
         end
-        JSON.parse response.body
+        JSON.parse(response.body, :symbolize_names => true)
       end
     end
   end

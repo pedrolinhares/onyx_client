@@ -12,14 +12,14 @@ module Onyx
     put '/' do
       params = JSON.parse(request.body.read)
       @@storage[params["key"]] = params["image"]
-      { code: '200', message: 'message', name: 'name' }.to_json
+      { code: '200', message: 'message' }.to_json
     end
 
     #buscar
     post '/' do
       params = JSON.parse(request.body.read)
-      key = @@storage.select {|key, value| value == params["image"] }  .keys.last
-      [{"id" => key, "score" => "1.0", "duplicated" => "false" }].to_json
+      key = @@storage.select {|key, value| value == params["image"] }.keys.last
+      [{ key: key, score: "1.0" }].to_json
     end
 
     #excluir
@@ -27,9 +27,9 @@ module Onyx
       params = JSON.parse(request.body.read)
       if @@storage.has_key?(params["key"])
         @@storage.delete params["key"]
-        { code: '200' }.to_json
+        { code: '200', message: 'message' }.to_json
       else
-        { code: '404' }.to_json
+        { code: '404', message: 'message' }.to_json
       end
     end
 

@@ -23,7 +23,8 @@ describe "Onyx::Client" do
     key = 'testing'
     img_base64 = Base64.encode64(File.open('spec/resources/debian.jpg').read)
     result = Onyx::Client.index(key, img_base64)
-    result["code"].should == '200'
+    result[:code].should == '200'
+    result.should == { code: '200', message: 'message' }
   end
 
   it 'searches for an image' do
@@ -32,12 +33,14 @@ describe "Onyx::Client" do
     Onyx::Client.index(key, img_base64)
     result = Onyx::Client.search(img_base64)
     result.size.should == 1
-    result.first["id"].should == key
+    result.first[:key].should == key
+    result.should == [{ key: key, score: "1.0" }]
   end
 
   it 'deletes an image' do
     key = 'testing'
     result = Onyx::Client.delete(key)
-    result["code"].should == '200'
+    result[:code].should == '200'
+    result.should == { code: '200', message: 'message' }
   end
 end
