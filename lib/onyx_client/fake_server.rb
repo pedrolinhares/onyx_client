@@ -2,11 +2,9 @@ require 'sinatra'
 require 'sinatra/base'
 require 'debugger'
 require 'json'
-# require 'sinatra/json'
 
 module Onyx
   class FakeServer < Sinatra::Base
-    # helpers Sinatra::JSON
 
     @@storage = {}
 
@@ -47,5 +45,3 @@ module Onyx
     end
   end
 end
-
- # ImageService::FakeServer.run!
