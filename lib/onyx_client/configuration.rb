@@ -1,4 +1,4 @@
-module ImageSearch
+module Onyx
   class Configuration
     class << self
       def host(host = nil)

@@ -1,7 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-describe "ImageSearch::Configuration" do
-  Configuration = ImageSearch::Configuration
+describe "Onyx::Configuration" do
+  Configuration = Onyx::Configuration
 
   it 'sets server host' do
     Configuration.host 'localhost'

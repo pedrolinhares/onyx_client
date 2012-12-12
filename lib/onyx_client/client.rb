@@ -3,11 +3,11 @@
 require 'base64'
 require 'net/http'
 
-module ImageSearch
+module Onyx
   class Client
     class << self
       def index(key, string_file)
-        settings = ImageSearch::Configuration.settings
+        settings = Onyx::Configuration.settings
         response = Net::HTTP.start(settings[:host], settings[:port]) do |http|
           request = Net::HTTP::Put.new(settings[:path])
           params = { key: key, file: string_file }
@@ -18,7 +18,7 @@ module ImageSearch
       end
 
       def search(string_file)
-        settings = ImageSearch::Configuration.settings
+        settings = Onyx::Configuration.settings
         response = Net::HTTP.start(settings[:host], settings[:port]) do |http|
           request = Net::HTTP::Post.new(settings[:path])
           params = { file: string_file }
@@ -29,7 +29,7 @@ module ImageSearch
       end
 
       def delete(key)
-        settings = ImageSearch::Configuration.settings
+        settings = Onyx::Configuration.settings
         response = Net::HTTP.start(settings[:host], settings[:port]) do |http|
           request = Net::HTTP::Delete.new(settings[:path])
           params = { key: key }

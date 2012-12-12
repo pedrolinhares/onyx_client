@@ -4,7 +4,7 @@ require 'debugger'
 require 'json'
 # require 'sinatra/json'
 
-module ImageSearch
+module Onyx
   class FakeServer < Sinatra::Base
     # helpers Sinatra::JSON
 
